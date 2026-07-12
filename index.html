@@ -59,6 +59,39 @@
         .user-avatar.vibrate {
             animation: vibrate 0.25s ease-in-out;
         }
+
+        /* 🛒 CART ICON VIBRATION (Reusing the vibrate animation) */
+        .icon-box.vibrate {
+            animation: vibrate 0.25s ease-in-out;
+        }
+
+        /* 🛒 CART NOTIFICATION TOOLTIP */
+        .cart-notification {
+            position: absolute;
+            top: 55px; /* Cart icon ke neeche */
+            right: -10px;
+            background: #1A1A1A;
+            color: #FFFFFF;
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 500;
+            white-space: nowrap;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 999;
+            animation: slideUp 0.3s ease-out forwards;
+        }
+        /* Notification ka upar wala small triangle/arrow */
+        .cart-notification::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            right: 14px;
+            width: 12px;
+            height: 12px;
+            background: #1A1A1A;
+            transform: rotate(45deg);
+        }
         /* ============================================== */
         
         /* ✨ LOGO TEXT */
@@ -376,7 +409,8 @@
             </div>
         </div>
         <div class="header-icons">
-            <div class="icon-box"><i class="fa-solid fa-shopping-cart"></i></div>
+            <!-- 🛒 Added ID="cartIcon" for click effect -->
+            <div class="icon-box" id="cartIcon"><i class="fa-solid fa-shopping-cart"></i></div>
             <div class="icon-box" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></div>
         </div>
     </div>
@@ -720,6 +754,34 @@
             avatarIcon.classList.remove('vibrate');
         });
         // ==============================================
+
+        // ==============================================
+        // 🛒 CART ICON CLICK: VIBRATION & NOTIFICATION
+        // ==============================================
+        const cartIconWrapper = document.getElementById('cartIcon');
+        if (cartIconWrapper) {
+            cartIconWrapper.addEventListener('click', function(e) {
+                // 1. Apply Vibration
+                this.classList.add('vibrate');
+                setTimeout(() => this.classList.remove('vibrate'), 250);
+
+                // 2. Show Notification (Remove old one if exists)
+                const existing = document.querySelector('.cart-notification');
+                if (existing) existing.remove();
+
+                const notif = document.createElement('div');
+                notif.className = 'cart-notification';
+                notif.innerText = 'पहले कुछ खरीदो तो सही! 😉';
+
+                this.style.position = 'relative'; // Ensure tooltip positions correctly
+                this.appendChild(notif);
+
+                // Auto remove after 2.5 seconds
+                setTimeout(() => {
+                    if (notif.parentNode) notif.remove();
+                }, 2500);
+            });
+        }
 
         // ==============================================
         // 🎉 5 UNIQUE SEQUENTIAL POPUPS WITH LOOP & RANDOM POSITION
