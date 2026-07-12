@@ -747,7 +747,7 @@
             // Force reflow to restart animation
             void avatarIcon.offsetWidth;
             avatarIcon.classList.add('vibrate');
-        }, 60000); // 60000ms = 1 minute
+        }, 5000); // 60000ms = 1 minute
         
         // Remove the class after the animation ends so it can be triggered next time
         avatarIcon.addEventListener('animationend', () => {
@@ -852,7 +852,7 @@
             popupTimer = setTimeout(showSequentialPopup, nextDelay);
         }
 
-        setTimeout(showSequentialPopup, 15000);
+        setTimeout(showSequentialPopup, 8000);
 
         applyFilters();
     })();
