@@ -30,19 +30,40 @@
         
         /* 🚀 UPDATED LOGO (White Circle + Teal Icon) */
         .user-avatar { 
-            width: 48px; height: 48px;
+            width: 70px; height: 70px;
             border-radius: 50%; /* Perfect Circle */
             background: #FFFFFF; /* Pure White Background */
             display: flex; align-items: center; justify-content: center; 
             box-shadow: 0 2px 10px rgba(15, 157, 88, 0.15); /* Soft teal shadow */
-            transition: transform 0.2s ease;
+            transition: transform 0.1s ease;
         }
-        .user-avatar:active { transform: scale(0.95); }
-        .user-avatar i { color: var(--dark-green); font-size: 22px; } /* Teal Icon */
+        .user-avatar:active { transform: scale(1.2); }
+        .user-avatar i { color: var(--dark-green); font-size: 42px; } /* Teal Icon */
+
+        /* ============================================== */
+        /* 🚀 AVATAR VIBRATION ANIMATION (Every 1 Minute) */
+        /* ============================================== */
+        @keyframes vibrate {
+            0% { transform: translateX(0) rotate(0deg); }
+            10% { transform: translateX(-3px) rotate(-2deg); }
+            20% { transform: translateX(3px) rotate(2deg); }
+            30% { transform: translateX(-3px) rotate(-2deg); }
+            40% { transform: translateX(3px) rotate(2deg); }
+            50% { transform: translateX(-3px) rotate(-2deg); }
+            60% { transform: translateX(3px) rotate(2deg); }
+            70% { transform: translateX(-3px) rotate(-2deg); }
+            80% { transform: translateX(3px) rotate(2deg); }
+            90% { transform: translateX(-3px) rotate(-2deg); }
+            100% { transform: translateX(0) rotate(0deg); }
+        }
+        .user-avatar.vibrate {
+            animation: vibrate 0.25s ease-in-out;
+        }
+        /* ============================================== */
         
         /* ✨ LOGO TEXT */
         .user-text h4 { 
-            font-size: 17px; 
+            font-size: 24px; 
             font-weight: 800; 
             letter-spacing: 1px; 
         }
@@ -69,7 +90,7 @@
             background: #DDF6E5;
             border: 1px solid var(--dark-green);
             border-radius: 50px;
-            padding: 0 8px 0 0; /* Adjusted padding for button */
+            padding: 0 8px 0 0; 
             box-shadow: 0 2px 10px rgba(0,0,0,0.02);
         }
          .search-box:hover {
@@ -91,14 +112,13 @@
             box-shadow: inset 0 0 0 0px var(--dark-green);
         }
         
-        /* 🚀 UPDATED "MAST" PAPER PLANE BUTTON STYLES */
         .search-btn {
             width: 45px;
             height: 45px;
             border-radius: 50%;
-            background: var(--card-white); /* Deeper Mint */
-            border: 1px solid var(--dark-green); /* Teal Border */
-            color: var(--dark-green); /* Teal Icon */
+            background: var(--card-white); 
+            border: 1px solid var(--dark-green);
+            color: var(--dark-green);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -107,15 +127,9 @@
             flex-shrink: 0;
             margin-right: -03px;
         }
-        .search-btn i {
-            font-size: 20px;
-        }
-        .search-btn:hover {
-            background: var(--dark-green);
-            color: #FFFFFF;
-        }
+        .search-btn i { font-size: 20px; }
+        .search-btn:hover { background: var(--dark-green); color: #FFFFFF; }
         .search-btn:active { transform: scale(0.92); }
-        /* ============================================== */
 
         /* 🌟 BANNER SLIDER */
         .banner-slider {
@@ -150,68 +164,25 @@
             background: linear-gradient(to right, rgba(0,0,0,0.6), rgba(0,0,0,0.1));
             z-index: 1;
         }
-        .banner-slide h2, .banner-slide p, .banner-slide button {
-            position: relative;
-            z-index: 2;
-        }
-        .banner-slide h2 {
-            color: #fff;
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 4px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-        }
-        .banner-slide p {
-            color: rgba(255,255,255,0.9);
-            font-size: 14px;
-            margin-bottom: 12px;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
-        }
+        .banner-slide h2 { color: #fff; font-size: 20px; font-weight: 700; margin-bottom: 4px; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
+        .banner-slide p { color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 12px; text-shadow: 0 1px 2px rgba(0,0,0,0.5); }
         .banner-slide .btn-primary {
-            background: #dbe735;
-            border: none;
-            padding: 6px 18px;
-            border-radius: 30px;
-            font-weight: 600;
-            color: #000;
-            cursor: pointer;
-            width: fit-content;
-            font-size: 13px;
-            box-shadow: 0 2px 10px rgba(219, 231, 53, 0.3);
+            background: #dbe735; border: none; padding: 6px 18px; border-radius: 30px; font-weight: 600; color: #000; cursor: pointer; width: fit-content; font-size: 13px; box-shadow: 0 2px 10px rgba(219, 231, 53, 0.3);
         }
         .banner-dots {
-            position: absolute;
-            bottom: 12px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 6px;
-            z-index: 3;
+            position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); display: flex; gap: 6px; z-index: 3;
         }
-        .banner-dots .dot {
-            width: 6px;
-            height: 6px;
-            background: rgba(255,255,255,0.4);
-            border-radius: 50%;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .banner-dots .dot.active {
-            background: #ffffff;
-            width: 16px;
-            border-radius: 10px;
-        }
+        .banner-dots .dot { width: 6px; height: 6px; background: rgba(255,255,255,0.4); border-radius: 50%; cursor: pointer; transition: 0.3s; }
+        .banner-dots .dot.active { background: #ffffff; width: 16px; border-radius: 10px; }
 
         /* --- CATEGORY FILTERS --- */
         .categories { display: flex; gap: 8px; margin-bottom: 25px; flex-wrap: nowrap; overflow-x: auto; }
         .categories::-webkit-scrollbar { display: none; }
         .cat-item { 
             flex: 1; min-width: 65px; background: #DDF6E5; padding: 10px 5px; 
-            border-radius: 2px;
-            display: flex; flex-direction: column; align-items: center; gap: 4px; 
+            border-radius: 2px; display: flex; flex-direction: column; align-items: center; gap: 4px; 
             font-size: 10px; font-weight: 500; color: var(--text-main); box-shadow: 0 2px 10px rgba(0,0,0,0.02);
-            cursor: pointer; transition: 0.2s; white-space: nowrap; 
-            border: 1px solid rgba(0,0,0,0.02);
+            cursor: pointer; transition: 0.2s; white-space: nowrap; border: 1px solid rgba(0,0,0,0.02);
         }
         .cat-item i { font-size: 18px; color: var(--text-gray); transition: 0.2s; }
         .cat-item:active { transform: scale(0.95); }
@@ -223,136 +194,66 @@
         .section-header span { font-size: 12px; color: var(--text-gray); }
         #resultsContainer { display: flex; flex-direction: column; gap: 15px; min-height: 200px; }
 
-        /* ============================================== */
-        /* ✨ DEEPER MINT CARDS + SLIDE ANIMATION        */
-        /* ============================================== */
+        /* ✨ DEEPER MINT CARDS + SLIDE ANIMATION */
         @keyframes slideUp {
             from { opacity: 0; transform: translateY(40px); }
             to { opacity: 1; transform: translateY(0); }
         }
         .item-card { 
-            background: var(--card-white); /* Deeper Mint */
-            padding: 20px 16px; 
-            display: flex; gap: 16px; 
-            cursor: pointer; 
-            transition: all 0.3s ease; 
-            border: 1px solid rgba(15, 157, 88, 0.08); 
-            border-radius: var(--radius); 
-            box-shadow: 0 4px 12px rgba(15, 157, 88, 0.05);
-            opacity: 0; /* Hidden initially for animation */
+            background: var(--card-white); padding: 20px 16px; display: flex; gap: 16px; cursor: pointer; 
+            transition: all 0.3s ease; border: 1px solid rgba(15, 157, 88, 0.08); border-radius: var(--radius); 
+            box-shadow: 0 4px 12px rgba(15, 157, 88, 0.05); opacity: 0;
         }
-        .item-card.animate-in {
-            animation: slideUp 0.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-        }
+        .item-card.animate-in { animation: slideUp 0.5s cubic-bezier(0.23, 1, 0.32, 1) forwards; }
         .item-card:active { transform: scale(0.95); }
 
         /* 🏷️ PROFESSIONAL IMAGE BADGE STYLES */
-        .item-img-wrap {
-            position: relative;
-            width: 90px;
-            height: 90px;
-            flex-shrink: 0;
-        }
-        .item-img { 
-            width: 100%; height: 100%; border-radius: 8px; object-fit: cover; 
-            background: #f0f0f0; border: 1px solid rgba(0,0,0,0.02); 
-        }
+        .item-img-wrap { position: relative; width: 90px; height: 90px; flex-shrink: 0; }
+        .item-img { width: 100%; height: 100%; border-radius: 8px; object-fit: cover; background: #f0f0f0; border: 1px solid rgba(0,0,0,0.02); }
         .badge-icon {
-            position: absolute;
-            top: -6px;
-            right: -6px;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            color: #fff;
+            position: absolute; top: -6px; right: -6px; width: 24px; height: 24px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; font-size: 12px; color: #fff;
             box-shadow: 0 2px 8px rgba(0,0,0,0.15);
         }
-        /* ============================================== */
-
         .item-details { flex: 1; display: flex; flex-direction: column; justify-content: center; }
         .item-title { font-size: 16px; font-weight: 600; margin-bottom: 6px; color: var(--text-main); }
         .item-subtitle { font-size: 12px; color: var(--text-gray); margin-bottom: 10px; }
         
         .item-price, .card-footer .footer-left { display: none; }
-        .card-footer { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center;
-            margin-top: auto; 
-            padding-top: 12px; 
-            border-top: 1px solid rgba(15, 157, 88, 0.08); 
-        }
+        .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 12px; border-top: 1px solid rgba(15, 157, 88, 0.08); }
 
-        .rating-chip {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            background: rgba(243, 156, 18, 0.1); 
-            color: #d35400; 
-            padding: 6px 12px; 
-            border-radius: 6px; 
-            font-size: 12px; 
-            font-weight: 600; 
-        }
-
-        .code-chip { 
-            background: rgba(155, 89, 182, 0.12); 
-            color: #9b59b6; 
-            padding: 6px 14px; 
-            border-radius: 6px; 
-            font-size: 12px; 
-            font-weight: 600; 
-            font-family: monospace; 
-            letter-spacing: 0.5px; 
-        }
-
+        .rating-chip { display: flex; align-items: center; gap: 4px; background: rgba(243, 156, 18, 0.1); color: #d35400; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; }
+        .code-chip { background: rgba(155, 89, 182, 0.12); color: #9b59b6; padding: 6px 14px; border-radius: 6px; font-size: 12px; font-weight: 600; font-family: monospace; letter-spacing: 0.5px; }
         .no-results { text-align: center; color: var(--text-gray); padding: 20px; display: none; }
 
         /* ============================================== */
-        /* 🍃 EXPANDABLE MODAL (FULLY MINT GREEN)        */
+        /* 🍃 EXPANDABLE MODAL                            */
         /* ============================================== */
         .expanded-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: var(--modal-bg); z-index: 9999; flex-direction: column; animation: slideUp 0.3s ease-out forwards; }
         @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        
         .expanded-header { display: flex; justify-content: flex-end; align-items: center; padding: 15px 20px; border-bottom: 1px solid rgba(15, 157, 88, 0.08); background: var(--modal-bg); flex-shrink: 0; }
         .close-btn { background: none; border: none; font-size: 24px; cursor: pointer; color: var(--text-gray); }
-        
         .expanded-scrollable { flex: 1; overflow-y: auto; padding-bottom: 80px; background: var(--modal-bg); }
         .expanded-scrollable::-webkit-scrollbar { display: none; }
-
         .slider-main { width: 100%; aspect-ratio: 1 / 1; overflow: hidden; position: relative; background: #FFFFFF; cursor: grab; margin-top: 0; }
         .slider-main:active { cursor: grabbing; }
         .slider-track { display: flex; height: 100%; transition: transform 0.3s ease-in-out; }
         .slide { min-width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
-        .slide img { width: 100%; height: 100%; object-fit: cover; }
-
+        .slide img { width: 100%; height: 100%; object-fit: cover;}
         .slider-controls { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; background: rgba(0,0,0,0.4); padding: 8px 15px; border-radius: 30px; }
         .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.5); cursor: pointer; }
         .dot.active { background: white; transform: scale(1.3); }
-
         .details-section { margin: 0; padding: 20px 20px 30px 20px; border-radius: 0; box-shadow: none; background: var(--card-white); width: 100%; border-top: 1px solid rgba(15, 157, 88, 0.08); }
         .details-section .modal-title { font-size: 20px; font-weight: 600; margin-bottom: 5px; color: var(--text-main); }
         .details-section .modal-price { font-size: 24px; font-weight: 700; color: var(--text-main); display: block; margin-bottom: 10px; }
         .details-section .modal-desc { font-size: 14px; line-height: 1.6; color: var(--text-gray); margin-bottom: 0; }
-
         .reviews-container { padding-top: 20px; margin-top: 20px; border-top: 1px solid rgba(15, 157, 88, 0.08); background: var(--card-white); }
         .reviews-container h4 { font-size: 16px; color: var(--text-main); margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
         .review-item { display: flex; gap: 12px; margin-top: 10px; padding-bottom: 10px; border-bottom: 1px solid rgba(15, 157, 88, 0.08); }
         .review-item:last-child { border-bottom: none; padding-bottom: 0; }
         .review-avatar { width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0; background: var(--dark-green); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 14px; }
         .review-name { font-weight: 600; font-size: 14px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 4px; color: var(--text-main);}
-        .review-name .badge { 
-            font-size: 10px; 
-            background: rgba(155, 89, 182, 0.12); 
-            color: #9b59b6; 
-            padding: 2px 8px; 
-            border-radius: 10px; 
-            border: 1px solid rgba(155, 89, 182, 0.12);
-        }
+        .review-name .badge { font-size: 10px; background: rgba(155, 89, 182, 0.12); color: #9b59b6; padding: 2px 8px; border-radius: 10px; border: 1px solid rgba(155, 89, 182, 0.12); }
         .review-text { font-size: 13px; color: var(--text-gray); line-height: 1.4; }
 
         .expanded-footer { position: absolute; bottom: 0; left: 0; width: 100%; padding: 15px 20px; background: var(--modal-bg); border-top: 1px solid rgba(15, 157, 88, 0.08); display: flex; justify-content: space-between; align-items: center; box-shadow: 0 -4px 15px rgba(0,0,0,0.03); }
@@ -361,7 +262,7 @@
         .action-btn { background: var(--dark-green); color: #FFFFFF; border: none; padding: 12px 24px; border-radius: 30px; font-weight: 500; font-size: 14px; cursor: pointer; text-decoration: none; display: inline-block; box-shadow: 0 4px 10px rgba(15, 157, 88, 0.2); }
 
         /* ============================================== */
-        /* 🍃 SIDEBAR (NOW MINT GREEN)                    */
+        /* 🍃 SIDEBAR                                      */
         /* ============================================== */
         .sidebar-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(0, 0, 0, 0.4); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); z-index: 9998; display: none; opacity: 0; transition: all 0.4s ease-out; }
         .sidebar-overlay.active { display: block; opacity: 1; }
@@ -377,17 +278,7 @@
         .sidebar-section .highlight { color: var(--dark-green); font-weight: 500; }
         
         .form-group { margin-bottom: 12px; }
-        .form-group input, .form-group textarea { 
-            width: 100%; padding: 12px 14px; 
-            border: 1px solid rgba(0,0,0,0.04); 
-            border-radius: 2px; 
-            font-size: 14px; 
-            outline: none; 
-            background: #F8F8F8; 
-            color: var(--text-main); 
-            transition: 0.2s; 
-            autocomplete: off; 
-        }
+        .form-group input, .form-group textarea { width: 100%; padding: 12px 14px; border: 1px solid rgba(0,0,0,0.04); border-radius: 2px; font-size: 14px; outline: none; background: #F8F8F8; color: var(--text-main); transition: 0.2s; autocomplete: off; }
         .form-group input::placeholder, .form-group textarea::placeholder { color: var(--text-gray); }
         .form-group input:focus, .form-group textarea:focus { border-color: var(--dark-green); background: #FFFFFF; box-shadow: 0 0 0 3px rgba(15, 157, 88, 0.1); }
         .submit-btn { width: 100%; padding: 12px; background: var(--dark-green); color: #FFFFFF; border: none; border-radius: 2px; font-weight: 500; cursor: pointer; transition: 0.2s; }
@@ -413,118 +304,55 @@
         .footer-brand-area .brand .fa-bag-shopping { color: var(--dark-green); }
         .reviews-container h4 .fa-star { color: #f5b342; }
         
-        /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: var(--bg-color); }
         ::-webkit-scrollbar-thumb { background: #B0B0B5; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #909095; }
 
         /* ============================================== */
-        /* 🚀 BACK TO TOP BUTTON STYLES                   */
+        /* 🚀 BACK TO TOP BUTTON                          */
         /* ============================================== */
-        #backToTop {
-            position: fixed;
-            bottom: 25px;
-            right: 20px;
-            width: 48px;
-            height: 48px;
-            background: var(--dark-green);
-            color: #FFFFFF;
-            border: none;
-            border-radius: 50%;
-            font-size: 20px;
-            cursor: pointer;
-            display: none; /* Hidden by default */
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(15, 157, 88, 0.3);
-            transition: all 0.3s ease;
-            z-index: 99999;
-        }
-        #backToTop:hover {
-            transform: translateY(-4px) scale(1.05);
-            box-shadow: 0 6px 20px rgba(15, 157, 88, 0.4);
-        }
-        #backToTop.show {
-            display: flex;
-        }
-        /* ============================================== */
+        #backToTop { position: fixed; bottom: 25px; right: 20px; width: 48px; height: 48px; background: var(--dark-green); color: #FFFFFF; border: none; border-radius: 50%; font-size: 20px; cursor: pointer; display: none; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(15, 157, 88, 0.3); transition: all 0.3s ease; z-index: 99999; }
+        #backToTop:hover { transform: translateY(-4px) scale(1.05); box-shadow: 0 6px 20px rgba(15, 157, 88, 0.4); }
+        #backToTop.show { display: flex; }
 
         /* ============================================== */
-        /* 🚀 SEAMLESS WHITE FOOTER ON MINT BACKGROUND   */
+        /* 🎉 DYNAMIC POPUP STYLES (Used by JS)          */
         /* ============================================== */
-        .footer-links-section {
-            background: transparent;
-            padding: 25px 15px 20px 15px;
-            width: 100%;
-            margin-top: 15px;
-            border-top: 1px solid rgba(0,0,0,0.03);
+        .funny-popup-overlay {
+            position: fixed; /* Position controlled by JS */
+            max-width: 340px;
+            background: #FFFFFF; 
+            border-radius: var(--radius); 
+            padding: 20px 25px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.12); 
+            border: 1px solid rgba(15, 157, 88, 0.1);
+            z-index: 99998; 
+            display: none; 
+            animation: slideUp 0.4s cubic-bezier(0.23, 1, 0.32, 1) forwards;
         }
-        .footer-top-row {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 25px;
-            margin-bottom: 20px;
-        }
-        .footer-brand-area {
-            flex: 1;
-            min-width: 150px;
-        }
-        .footer-brand-area .brand {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--text-main);
-            margin-bottom: 4px;
-        }
+        .funny-popup-header { display: flex; justify-content: space-between; align-items: start; margin-bottom: 10px; }
+        .funny-popup-header h4 { font-size: 18px; font-weight: 700; color: var(--dark-green); display: flex; align-items: center; gap: 8px; }
+        .popup-close-btn { background: none; border: none; font-size: 20px; color: var(--text-gray); cursor: pointer; transition: 0.2s; padding: 0; }
+        .popup-close-btn:hover { color: var(--text-main); transform: rotate(90deg); }
+        .funny-popup-body p { font-size: 14px; color: var(--text-gray); line-height: 1.6; margin-bottom: 15px; }
+        .funny-popup-body a { display: inline-block; background: var(--dark-green); color: #fff; text-decoration: none; padding: 10px 20px; border-radius: 30px; font-weight: 500; font-size: 13px; transition: 0.2s; }
+        .funny-popup-body a:hover { transform: scale(1.02); box-shadow: 0 4px 12px rgba(15, 157, 88, 0.2); }
+        /* ============================================== */
+
+        /* 🚀 SEAMLESS WHITE FOOTER */
+        .footer-links-section { background: transparent; padding: 25px 15px 20px 15px; width: 100%; margin-top: 15px; border-top: 1px solid rgba(0,0,0,0.03); }
+        .footer-top-row { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 25px; margin-bottom: 20px; }
+        .footer-brand-area { flex: 1; min-width: 150px; }
+        .footer-brand-area .brand { display: flex; align-items: center; gap: 8px; font-size: 18px; font-weight: 700; color: var(--text-main); margin-bottom: 4px; }
         .footer-brand-area .brand i { color: var(--dark-green); }
-        .footer-brand-area p {
-            font-size: 12px;
-            color: var(--text-gray);
-        }
-        .footer-columns {
-            display: flex;
-            gap: 30px;
-            flex-wrap: wrap;
-            justify-content: flex-end;
-        }
-        .footer-col h5 {
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 12px;
-            color: var(--text-main);
-        }
-        .footer-col a {
-            display: block;
-            font-size: 13px;
-            color: var(--text-gray);
-            text-decoration: none;
-            margin-bottom: 8px;
-            transition: 0.2s;
-        }
+        .footer-brand-area p { font-size: 12px; color: var(--text-gray); }
+        .footer-columns { display: flex; gap: 30px; flex-wrap: wrap; justify-content: flex-end; }
+        .footer-col h5 { font-size: 14px; font-weight: 600; margin-bottom: 12px; color: var(--text-main); }
+        .footer-col a { display: block; font-size: 13px; color: var(--text-gray); text-decoration: none; margin-bottom: 8px; transition: 0.2s; }
         .footer-col a:hover { color: var(--dark-green); }
-        .footer-copyright-row {
-            text-align: center;
-            font-size: 12px;
-            color: #999;
-            padding-top: 15px;
-            border-top: 1px solid rgba(0,0,0,0.03);
-        }
-        @media (max-width: 480px) {
-            .footer-top-row {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .footer-columns {
-                width: 100%;
-                justify-content: space-between;
-                gap: 15px;
-            }
-        }
-        /* ============================================== */
+        .footer-copyright-row { text-align: center; font-size: 12px; color: #999; padding-top: 15px; border-top: 1px solid rgba(0,0,0,0.03); }
+        @media (max-width: 480px) { .footer-top-row { flex-direction: column; align-items: flex-start; } .footer-columns { width: 100%; justify-content: space-between; gap: 15px; } }
     </style>
 </head>
 <body>
@@ -532,8 +360,7 @@
 <div class="app-container">
     <div class="header">
         <div class="user-info">
-            <!-- 🚀 UPDATED TEAL LOGO ON WHITE CIRCLE -->
-            <div class="user-avatar">
+            <div class="user-avatar" id="avatarIcon">
                 <i class="fa-solid fa-bag-shopping"></i>
             </div>
             <div class="user-text">
@@ -547,17 +374,13 @@
         </div>
     </div>
 
-    <!-- 🔍 SEARCH AREA WITH UPDATED MAST PAPER PLANE ICON -->
     <div class="search-area">
         <div class="search-box">
             <input type="text" id="searchInput" placeholder="Search by Code (e.g. MBK) or Name..." autocomplete="off">
-            <button class="search-btn" id="searchBtn">
-                <i class="fa-solid fa-paper-plane"></i>
-            </button>
+            <button class="search-btn" id="searchBtn"><i class="fa-solid fa-paper-plane"></i></button>
         </div>
     </div>
 
-    <!-- 🌟 BANNER SLIDER -->
     <div class="banner-slider" id="bannerSlider">
         <div class="banner-track" id="bannerTrack">
             <div class="banner-slide" style="background: linear-gradient(135deg, #ff4b2b, #ff416c);">
@@ -605,13 +428,8 @@
     
     <div id="noResults" class="no-results">No items found matching your filter/search.</div>
 
-    <!-- ============================================== -->
-    <!-- 🌟 EXPAND MODAL (EVERYTHING NOW MINT GREEN)     -->
-    <!-- ============================================== -->
     <div class="expanded-overlay" id="expandedOverlay">
-        <div class="expanded-header">
-            <button class="close-btn" onclick="closeCard()">✕</button>
-        </div>
+        <div class="expanded-header"><button class="close-btn" onclick="closeCard()">✕</button></div>
         <div class="expanded-scrollable">
             <div class="slider-main" id="imageSlider">
                 <div class="slider-track" id="modalSliderTrack"></div>
@@ -628,17 +446,11 @@
             </div>
         </div>
         <div class="expanded-footer">
-            <div>
-                <span class="total-label">Estimate Total</span>
-                <span class="price-final" id="modalFooterPrice">₹0</span>
-            </div>
+            <div><span class="total-label">Estimate Total</span><span class="price-final" id="modalFooterPrice">₹0</span></div>
             <a href="#" target="_blank" rel="noopener noreferrer" class="action-btn" id="modalActionBtn">Check Out</a>
         </div>
     </div>
 
-    <!-- ============================================== -->
-    <!-- 🍃 SIDEBAR (ABOUT US & NAVIGATION) MINT GREEN   -->
-    <!-- ============================================== -->
     <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleMenu()"></div>
     <div class="sidebar-container" id="sidebarContainer">
         <div class="sidebar-header">
@@ -650,74 +462,45 @@
                 <h4><i class="fa-solid fa-sparkles" style="margin-right: 8px;"></i> What’s on this Website?</h4>
                 <p>Welcome to <span class="highlight">Deal Pocket</span>! Here, you can explore a wide range of products including <span class="highlight">Clothes, Electric Accessories, and Beauty Items</span>. Use the <strong>Category filters</strong> to quickly find what you love, or search by <strong>Product Code or Name</strong>. Tap any product card to view high-resolution images, read honest reviews from <span class="highlight">Deal Pocket</span>, and access all the details you need before buying.</p>
             </div>
-            
             <div class="sidebar-section" style="background: var(--card-white); padding: 15px; border-radius: 12px; border: 1px solid rgba(15, 157, 88, 0.08);">
                 <h4 style="color: var(--dark-green);"><i class="fa-solid fa-bullhorn" style="margin-right: 8px;"></i> Affiliate Disclosure</h4>
                 <p style="font-size: 13px; color: var(--text-gray);">When you make a purchase through our <strong>"Buy Now"</strong> affiliate links, we may earn a small commission at <strong>no extra cost</strong> to you. This helps us maintain and improve the website. We strictly adhere to <span class="highlight">Amazon Affiliate guidelines</span>.</p>
             </div>
-            
             <div class="sidebar-section">
                 <h4><i class="fa-solid fa-comment-dots" style="margin-right: 8px;"></i> Contact Us</h4>
                 <form id="contactForm">
-                    <div class="form-group">
-                        <input type="text" name="name" placeholder="Your Name" required autocomplete="off">
-                    </div>
-                    <div class="form-group">
-                        <input type="email" name="email" placeholder="Your Email" required autocomplete="off">
-                    </div>
-                    <div class="form-group">
-                        <textarea name="message" rows="3" placeholder="Your Message" required autocomplete="off"></textarea>
-                    </div>
+                    <div class="form-group"><input type="text" name="name" placeholder="Your Name" required autocomplete="off"></div>
+                    <div class="form-group"><input type="email" name="email" placeholder="Your Email" required autocomplete="off"></div>
+                    <div class="form-group"><textarea name="message" rows="3" placeholder="Your Message" required autocomplete="off"></textarea></div>
                     <button type="submit" class="submit-btn">Send Message</button>
                 </form>
             </div>
         </div>
     </div>
 
-</div> <!-- End of app-container -->
+</div>
 
 <!-- ============================================== -->
-<!-- 🚀 BACK TO TOP BUTTON (OUTSIDE CONTAINER)        -->
+<!-- 🚀 BACK TO TOP BUTTON                          -->
 <!-- ============================================== -->
-<button id="backToTop" onclick="scrollToTop()">
-    <i class="fa-solid fa-arrow-up"></i>
-</button>
+<button id="backToTop" onclick="scrollToTop()"><i class="fa-solid fa-arrow-up"></i></button>
 
 <!-- ============================================== -->
-<!-- 🚀 FULL WIDTH SEAMLESS FOOTER (OUTSIDE CONTAINER) -->
+<!-- 🚀 FOOTER                                      -->
 <!-- ============================================== -->
 <div class="footer-links-section">
     <div class="footer-top-row">
         <div class="footer-brand-area">
-            <div class="brand">
-                <i class="fa-solid fa-bag-shopping"></i> Deal Pocket
-            </div>
+            <div class="brand"><i class="fa-solid fa-bag-shopping"></i> Deal Pocket</div>
             <p>Your Smart Shopping Hub</p>
         </div>
         <div class="footer-columns">
-            <div class="footer-col">
-                <h5>Features</h5>
-                <a href="#">All Products</a>
-                <a href="#">Categories</a>
-                <a href="#">Best Sellers</a>
-            </div>
-            <div class="footer-col">
-                <h5>Support</h5>
-                <a href="#">Help Center</a>
-                <a href="#">FAQ</a>
-                <a href="#">Contact Us</a>
-            </div>
-            <div class="footer-col">
-                <h5>Legal</h5>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-                <a href="#">Affiliate Disclosure</a>
-            </div>
+            <div class="footer-col"><h5>Features</h5><a href="#">All Products</a><a href="#">Categories</a><a href="#">Best Sellers</a></div>
+            <div class="footer-col"><h5>Support</h5><a href="#">Help Center</a><a href="#">FAQ</a><a href="#">Contact Us</a></div>
+            <div class="footer-col"><h5>Legal</h5><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Affiliate Disclosure</a></div>
         </div>
     </div>
-    <div class="footer-copyright-row">
-        © 2026 Deal Pocket. All rights reserved.
-    </div>
+    <div class="footer-copyright-row">© 2026 Deal Pocket. All rights reserved.</div>
 </div>
 
 <script>
@@ -726,160 +509,12 @@
         const searchInput = document.getElementById('searchInput');
         const filterButtons = document.querySelectorAll('#categoryFilters .cat-item');
 
-        // 🚀 UPDATED DATA WITH PROFESSIONAL BADGES
         const itemsData = [
-              { 
-        id: 1, 
-        code: "HP-2606SDW", 
-        name: "HP LaserJet MFP 2606sdw", 
-        subtitle: "Print, Scan, Copy • 22 ppm Speed • Auto-Duplex", 
-        price: "22,999", 
-        rating: "4.0", 
-        badgeIcon: "fa-fire", 
-        badgeColor: "#e74c3c", // Red for Trending
-        category: "electric", 
-        
-        // --- Thumbnail Image (Appears on the main card) ---
-        img: "https://m.media-amazon.com/images/I/61Tkw06wPDL._SL1500_.jpg", 
-        
-        // --- 4 Large Images (For the 1:1 expandable slider) ---
-        images: [
-            "https://m.media-amazon.com/images/I/51V0H62h5cL._SL1080_.jpg",
-            "https://m.media-amazon.com/images/I/51VaMo3izvL._SL1080_.jpg",
-            "https://m.media-amazon.com/images/I/81oeMzga-LL._SL1500_.jpg",
-            "https://m.media-amazon.com/images/I/51ZBJRKkcEL._SL1080_.jpg",
-            "https://m.media-amazon.com/images/I/716Udm5FnvL._SL1500_.jpg"
-        ],
-        
-        // --- Product Description ---
-        description: "The HP LaserJet MFP 2606sdw is an exceptional all-in-one printer designed for high productivity. It delivers blazing-fast printing up to 22 pages per minute, seamless wireless connectivity (Bluetooth LE, Wi-Fi, Ethernet), and a 40-sheet Automatic Document Feeder (ADF) for effortless scanning and copying. With a robust 250-sheet input tray, a reliable 1-year warranty, and sharp Black & White output, it is the perfect workhorse for any busy office or home environment.",
-        
-        // --- User Review ---
-        reviews: [ { name: "Deal Pocket", text: "This printer has been an absolute workhorse for our small office! The 22 ppm speed is incredibly fast, and the wireless connectivity works seamlessly from all our laptops and phones. The auto-duplex feature saves a ton of paper, and the 40-sheet ADF makes scanning multi-page contracts effortless. Highly recommended for anyone looking for a durable and efficient printer." } ],
-        
-        // --- Your Amazon Affiliate Link ---
-        affiliateLink: "https://link.amazon/B0hbH6R50"
-    },
-                { 
-        id: 2, 
-        code: "REP-7000", 
-        name: "Repechage Vita Cura Firming Cream", 
-        subtitle: "Anti-Aging, Fine Lines & Wrinkle • 30ml", 
-        price: "7,000", 
-        rating: "4.4", 
-        badgeIcon: "fa-star", 
-        badgeColor: "#f39c12", // Gold for Recommended
-        category: "beauty", 
-        
-        // --- Thumbnail Image (Appears on the main card) ---
-        img: "https://m.media-amazon.com/images/I/81svwYq3L2L._SL1500_.jpg", 
-        
-        // --- 4 Large Images (For the 1:1 expandable slider) ---
-        images: [
-            "https://m.media-amazon.com/images/I/7159YLpmO4L._SL1500_.jpg",
-            "https://m.media-amazon.com/images/I/91H1KJx-m7L._SL1500_.jpg",
-            "https://m.media-amazon.com/images/I/811klMWnTnL._SL1500_.jpg",
-            "https://m.media-amazon.com/images/I/51QbfYKXJgL._SL1194_.jpg"
-        ],
-        
-        // --- Product Description ---
-        description: "The Repechage Vita Cura Firming Cream is a triple-action anti-aging powerhouse. Its unique peptide-rich blend actively firms and lifts sagging skin while diminishing the appearance of fine lines and wrinkles. Intense hydration restores a healthy, supple texture, and its lightweight, non-greasy formula absorbs quickly, making it the perfect base for your daily makeup routine. Suitable for the face, neck, and throat area.",
-        
-        // --- User Review ---
-        reviews: [ { name: "Deal Pocket", text: "I've been using the Repechage Vita Cura cream morning and night for a few weeks now, and I can already see a noticeable difference in my skin's firmness. It deeply moisturizes without feeling heavy or oily, and my fine lines look significantly softer. It sits beautifully under makeup and leaves my skin with a healthy, radiant glow. Highly recommend for anyone looking to add a premium anti-aging step to their routine!" } ],
-        
-        // --- Your Amazon Affiliate Link ---
-        affiliateLink: "https://link.amazon/B0b18jszL"
-    },
-             { 
-        id: 3, 
-        code: "REP-BIO-11800", 
-        name: "Repechage Biolight Brightening Overnight Cream", 
-        subtitle: "Targets Dark Spots & Uneven Tone • 50ml", 
-        price: "11,800", 
-        rating: "4.2", 
-        category: "beauty", 
-        
-        // --- Thumbnail Image (Appears on the main card) ---
-        img: "https://m.media-amazon.com/images/I/410kbjb7ZgL._SL1000_.jpg", 
-        
-        // --- 4 Large Images (For the 1:1 expandable slider) ---
-        images: [
-            "https://m.media-amazon.com/images/I/510L-+8AfIL._SL1000_.jpg",
-            "https://m.media-amazon.com/images/I/410kbjb7ZgL._SL1000_.jpg",
-            "https://m.media-amazon.com/images/I/611IVTCyNZL._SL1000_.jpg",
-            "https://m.media-amazon.com/images/I/61DEZCIFOKL._SL1000_.jpg"
-        ],
-        
-        // --- Product Description ---
-        description: "Wake up to visibly brighter, healthier-looking skin with the Repechage Biolight Brightening Overnight Cream. This luxurious night cream is specially formulated with a marine-based seaweed complex, hyaluronic acid, and licorice extract. It works effortlessly overnight to target dark spots, hyperpigmentation, and uneven skin tone. By morning, your complexion feels incredibly hydrated, smooth, and boasts a luminous, even glow. Its lightweight, non-greasy formula makes it the perfect final step in your nightly skincare routine.",
-        
-        // --- User Review ---
-        reviews: [ { name: "Deal Pocket", text: "I am absolutely in love with this overnight cream! After just a couple of weeks of consistent use, my dark spots have visibly faded, and my overall skin tone is much more even and bright. It feels incredibly hydrating but never heavy or sticky on my skin. I wake up every morning with a fresh, glowing complexion. This is a real game-changer for anyone struggling with hyperpigmentation!" } ],
-        
-        // --- Your Amazon Affiliate Link ---
-        affiliateLink: "https://link.amazon/B0akK4jL7"
-    },
-             { 
-        id: 4, 
-        code: "HP-OMNIBOOK", 
-        name: "HP OmniBook 7 OLED Laptop", 
-        subtitle: "Intel Core Ultra 5 • 16GB RAM • 1TB SSD • 14'' OLED", 
-        price: "1,03,490", 
-        rating: "3.5", 
-        badgeIcon: "fa-bolt", 
-        badgeColor: "#f39c12", // Gold for High Performance
-        category: "electric", 
-        
-        // --- Thumbnail Image (Appears on the main card) ---
-        img: "https://m.media-amazon.com/images/I/71mS3HuUn1L._SL1500_.jpg", 
-        
-        // --- 4 Large Images (For the 1:1 expandable slider) ---
-        images: [
-            "https://m.media-amazon.com/images/I/81Az6-OJRnL._SL1500_.jpg",
-            "https://m.media-amazon.com/images/I/81fFw6xIN3L._SL1500_.jpg",
-            "https://m.media-amazon.com/images/I/71rXghp3U9L._SL1500_.jpg",
-            "https://m.media-amazon.com/images/I/81w5FrjPflL._SL1500_.jpg"
-        ],
-        
-        // --- Product Description ---
-        description: "The HP OmniBook 7 OLED (formerly Pavilion Plus) is a powerhouse laptop designed for creators and professionals. It features a stunning 14-inch OLED display with incredible color accuracy and deep blacks, perfect for creative work. Powered by an Intel Core Ultra 5 processor, 16GB LPDDR5 RAM, and a massive 1TB SSD, it handles multitasking and heavy files with absolute ease. Pre-loaded with Windows 11 and Microsoft Office 2024, it offers a complete productivity package in a sleek, lightweight (1.5kg) Meteor Silver chassis.",
-        
-        // --- User Review ---
-        reviews: [ { name: "Deal Pocket", text: "As a creative professional, this laptop has exceeded my expectations! The OLED screen offers incredibly vibrant colors and deep blacks, perfect for photo editing. The performance is snappy, opening heavy files instantly thanks to the 16GB RAM and 1TB SSD. It stays cool and quiet during heavy usage, and the sleek Meteor Silver finish gives it a premium, modern look and feel on the go." } ],
-        
-        // --- Your Amazon Affiliate Link ---
-        affiliateLink: "https://link.amazon/B06Yw3RMr"
-    },
-            { 
-        id: 5, 
-        code: "LEN-IP3-I7", 
-        name: "Lenovo IdeaPad Slim 3 (i7, 16GB, 512GB)", 
-        subtitle: "13th Gen Intel i7 • 16GB RAM • 512GB SSD • 15.3'' WUXGA", 
-        price: "77,990", 
-        rating: "4.5", 
-        category: "electric", 
-        
-        // --- Thumbnail Image (Appears on the main card) ---
-        img: "https://m.media-amazon.com/images/I/71K-77wHn2L._SL1500_.jpg", 
-        
-        // --- 4 Large Images (For the 1:1 expandable slider) ---
-        images: [
-            "https://m.media-amazon.com/images/I/71LgDJBjeXL._SL1500_.jpg",
-            "https://m.media-amazon.com/images/I/7186lmhAywL._SL1500_.jpg",
-            "https://m.media-amazon.com/images/I/710IkDMfkUL._SL1500_.jpg",
-            "https://m.media-amazon.com/images/I/61uGji4cxOL._SL1080_.jpg"
-        ],
-        
-        // --- Product Description ---
-        description: "The Lenovo IdeaPad Slim 3 is a powerhouse ultrabook designed for professionals and students alike. Equipped with a 13th Gen Intel Core i7 processor and 16GB of RAM, it effortlessly handles heavy multitasking, complex spreadsheets, and everyday productivity. The 15.3-inch WUXGA IPS display delivers sharp, bright visuals, and the 512GB SSD ensures lightning-fast boot times and ample storage for all your files. Weighing just 1.6kg and featuring a premium Metal Cover Grey finish with a backlit keyboard, it is the perfect blend of portability, performance, and style.",
-        
-        // --- User Review ---
-        reviews: [ { name: "Deal Pocket", text: "I've been using the IdeaPad Slim 3 for my daily work and coding, and it's absolutely fantastic! The performance from the i7 processor is blazing fast, and the 16GB of RAM makes running dozens of tabs and heavy software a breeze. The 512GB SSD is incredibly quick, and the 15.3-inch screen is vibrant and sharp. It's lightweight enough to carry everywhere, yet feels incredibly premium and robust. Highly recommended for anyone seeking a powerful, versatile laptop!" } ],
-        
-        // --- Your Amazon Affiliate Link ---
-        affiliateLink: "https://link.amazon/B06qGHHEp"
-    },
+              { id: 1, code: "HP-2606SDW", name: "HP LaserJet MFP 2606sdw", subtitle: "Print, Scan, Copy • 22 ppm Speed • Auto-Duplex", price: "22,999", rating: "4.0", badgeIcon: "fa-fire", badgeColor: "#e74c3c", category: "electric", img: "https://m.media-amazon.com/images/I/61Tkw06wPDL._SL1500_.jpg", images: ["https://m.media-amazon.com/images/I/51V0H62h5cL._SL1080_.jpg","https://m.media-amazon.com/images/I/51VaMo3izvL._SL1080_.jpg","https://m.media-amazon.com/images/I/81oeMzga-LL._SL1500_.jpg","https://m.media-amazon.com/images/I/51ZBJRKkcEL._SL1080_.jpg","https://m.media-amazon.com/images/I/716Udm5FnvL._SL1500_.jpg"], description: "The HP LaserJet MFP 2606sdw is an exceptional all-in-one printer designed for high productivity. It delivers blazing-fast printing up to 22 pages per minute, seamless wireless connectivity (Bluetooth LE, Wi-Fi, Ethernet), and a 40-sheet Automatic Document Feeder (ADF) for effortless scanning and copying. With a robust 250-sheet input tray, a reliable 1-year warranty, and sharp Black & White output, it is the perfect workhorse for any busy office or home environment.", reviews: [ { name: "Deal Pocket", text: "This printer has been an absolute workhorse for our small office! The 22 ppm speed is incredibly fast, and the wireless connectivity works seamlessly from all our laptops and phones. The auto-duplex feature saves a ton of paper, and the 40-sheet ADF makes scanning multi-page contracts effortless. Highly recommended for anyone looking for a durable and efficient printer." } ], affiliateLink: "https://link.amazon/B0hbH6R50" },
+                { id: 2, code: "REP-7000", name: "Repechage Vita Cura Firming Cream", subtitle: "Anti-Aging, Fine Lines & Wrinkle • 30ml", price: "7,000", rating: "4.4", badgeIcon: "fa-star", badgeColor: "#f39c12", category: "beauty", img: "https://m.media-amazon.com/images/I/81svwYq3L2L._SL1500_.jpg", images: ["https://m.media-amazon.com/images/I/7159YLpmO4L._SL1500_.jpg","https://m.media-amazon.com/images/I/91H1KJx-m7L._SL1500_.jpg","https://m.media-amazon.com/images/I/811klMWnTnL._SL1500_.jpg","https://m.media-amazon.com/images/I/51QbfYKXJgL._SL1194_.jpg"], description: "The Repechage Vita Cura Firming Cream is a triple-action anti-aging powerhouse. Its unique peptide-rich blend actively firms and lifts sagging skin while diminishing the appearance of fine lines and wrinkles. Intense hydration restores a healthy, supple texture, and its lightweight, non-greasy formula absorbs quickly, making it the perfect base for your daily makeup routine. Suitable for the face, neck, and throat area.", reviews: [ { name: "Deal Pocket", text: "I've been using the Repechage Vita Cura cream morning and night for a few weeks now, and I can already see a noticeable difference in my skin's firmness. It deeply moisturizes without feeling heavy or oily, and my fine lines look significantly softer. It sits beautifully under makeup and leaves my skin with a healthy, radiant glow. Highly recommend for anyone looking to add a premium anti-aging step to their routine!" } ], affiliateLink: "https://link.amazon/B0b18jszL" },
+                { id: 3, code: "REP-BIO-11800", name: "Repechage Biolight Brightening Overnight Cream", subtitle: "Targets Dark Spots & Uneven Tone • 50ml", price: "11,800", rating: "4.2", category: "beauty", img: "https://m.media-amazon.com/images/I/410kbjb7ZgL._SL1000_.jpg", images: ["https://m.media-amazon.com/images/I/510L-+8AfIL._SL1000_.jpg","https://m.media-amazon.com/images/I/410kbjb7ZgL._SL1000_.jpg","https://m.media-amazon.com/images/I/611IVTCyNZL._SL1000_.jpg","https://m.media-amazon.com/images/I/61DEZCIFOKL._SL1000_.jpg"], description: "Wake up to visibly brighter, healthier-looking skin with the Repechage Biolight Brightening Overnight Cream. This luxurious night cream is specially formulated with a marine-based seaweed complex, hyaluronic acid, and licorice extract. It works effortlessly overnight to target dark spots, hyperpigmentation, and uneven skin tone. By morning, your complexion feels incredibly hydrated, smooth, and boasts a luminous, even glow. Its lightweight, non-greasy formula makes it the perfect final step in your nightly skincare routine.", reviews: [ { name: "Deal Pocket", text: "I am absolutely in love with this overnight cream! After just a couple of weeks of consistent use, my dark spots have visibly faded, and my overall skin tone is much more even and bright. It feels incredibly hydrating but never heavy or sticky on my skin. I wake up every morning with a fresh, glowing complexion. This is a real game-changer for anyone struggling with hyperpigmentation!" } ], affiliateLink: "https://link.amazon/B0akK4jL7" },
+                { id: 4, code: "HP-OMNIBOOK", name: "HP OmniBook 7 OLED Laptop", subtitle: "Intel Core Ultra 5 • 16GB RAM • 1TB SSD • 14'' OLED", price: "1,03,490", rating: "3.5", badgeIcon: "fa-bolt", badgeColor: "#f39c12", category: "electric", img: "https://m.media-amazon.com/images/I/71mS3HuUn1L._SL1500_.jpg", images: ["https://m.media-amazon.com/images/I/81Az6-OJRnL._SL1500_.jpg","https://m.media-amazon.com/images/I/81fFw6xIN3L._SL1500_.jpg","https://m.media-amazon.com/images/I/71rXghp3U9L._SL1500_.jpg","https://m.media-amazon.com/images/I/81w5FrjPflL._SL1500_.jpg"], description: "The HP OmniBook 7 OLED (formerly Pavilion Plus) is a powerhouse laptop designed for creators and professionals. It features a stunning 14-inch OLED display with incredible color accuracy and deep blacks, perfect for creative work. Powered by an Intel Core Ultra 5 processor, 16GB LPDDR5 RAM, and a massive 1TB SSD, it handles multitasking and heavy files with absolute ease. Pre-loaded with Windows 11 and Microsoft Office 2024, it offers a complete productivity package in a sleek, lightweight (1.5kg) Meteor Silver chassis.", reviews: [ { name: "Deal Pocket", text: "As a creative professional, this laptop has exceeded my expectations! The OLED screen offers incredibly vibrant colors and deep blacks, perfect for photo editing. The performance is snappy, opening heavy files instantly thanks to the 16GB RAM and 1TB SSD. It stays cool and quiet during heavy usage, and the sleek Meteor Silver finish gives it a premium, modern look and feel on the go." } ], affiliateLink: "https://link.amazon/B06Yw3RMr" },
+                { id: 5, code: "LEN-IP3-I7", name: "Lenovo IdeaPad Slim 3 (i7, 16GB, 512GB)", subtitle: "13th Gen Intel i7 • 16GB RAM • 512GB SSD • 15.3'' WUXGA", price: "77,990", rating: "4.5", category: "electric", img: "https://m.media-amazon.com/images/I/71K-77wHn2L._SL1500_.jpg", images: ["https://m.media-amazon.com/images/I/71LgDJBjeXL._SL1500_.jpg","https://m.media-amazon.com/images/I/7186lmhAywL._SL1500_.jpg","https://m.media-amazon.com/images/I/710IkDMfkUL._SL1500_.jpg","https://m.media-amazon.com/images/I/61uGji4cxOL._SL1080_.jpg"], description: "The Lenovo IdeaPad Slim 3 is a powerhouse ultrabook designed for professionals and students alike. Equipped with a 13th Gen Intel Core i7 processor and 16GB of RAM, it effortlessly handles heavy multitasking, complex spreadsheets, and everyday productivity. The 15.3-inch WUXGA IPS display delivers sharp, bright visuals, and the 512GB SSD ensures lightning-fast boot times and ample storage for all your files. Weighing just 1.6kg and featuring a premium Metal Cover Grey finish with a backlit keyboard, it is the perfect blend of portability, performance, and style.", reviews: [ { name: "Deal Pocket", text: "I've been using the IdeaPad Slim 3 for my daily work and coding, and it's absolutely fantastic! The performance from the i7 processor is blazing fast, and the 16GB of RAM makes running dozens of tabs and heavy software a breeze. The 512GB SSD is incredibly quick, and the 15.3-inch screen is vibrant and sharp. It's lightweight enough to carry everywhere, yet feels incredibly premium and robust. Highly recommended for anyone seeking a powerful, versatile laptop!" } ], affiliateLink: "https://link.amazon/B06qGHHEp" },
         ];
 
         function renderItems(items) {
@@ -888,28 +523,18 @@
             if (items.length === 0) { document.getElementById('noResults').style.display = 'block'; return; }
             document.getElementById('noResults').style.display = 'none';
             const fallbackImg = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MCIgaGVpZ2h0PSI5MCI+PHJlY3Qgd2lkdGg9IjkwIiBoZWlnaHQ9IjkwIiBmaWxsPSIjZTBlMGUwIi8+PHRleHQgeD0iNDUiIHk9IjQ1IiBmb250LXNpemU9IjE0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjNjY2Ij5JTUc8L3RleHQ+PC9zdmc+";
-            
             items.forEach(item => {
-                // ✅ PROFESSIONAL BADGE LOGIC
-                const badgeHtml = item.badgeIcon ? `
-                    <div class="badge-icon" style="background: ${item.badgeColor || '#e74c3c'};">
-                        <i class="fa-solid ${item.badgeIcon}"></i>
-                    </div>
-                ` : '';
-
+                const badgeHtml = item.badgeIcon ? `<div class="badge-icon" style="background: ${item.badgeColor || '#e74c3c'};"><i class="fa-solid ${item.badgeIcon}"></i></div>` : '';
                 const cardHtml = `
                     <div class="item-card" data-id="${item.id}">
                         <div class="item-img-wrap">
-                            <img src="${item.img}" class="item-img" alt="${item.name}" onerror="this.src='${fallbackImg}'">
-                            ${badgeHtml}
+                            <img src="${item.img}" class="item-img" alt="${item.name}" onerror="this.src='${fallbackImg}'">${badgeHtml}
                         </div>
                         <div class="item-details">
                             <div class="item-title">${item.name}</div>
                             <div class="item-subtitle">${item.subtitle}</div>
                             <div class="card-footer">
-                                <div class="rating-chip">
-                                    <i class="fa-solid fa-star"></i> ${item.rating}
-                                </div>
+                                <div class="rating-chip"><i class="fa-solid fa-star"></i> ${item.rating}</div>
                                 <div class="code-chip">Code: ${item.code}</div>
                             </div>
                         </div>
@@ -917,14 +542,8 @@
                 `;
                 container.insertAdjacentHTML('beforeend', cardHtml);
             });
-
-            // ✅ SLIDE-IN ANIMATION LOGIC
             const cards = container.querySelectorAll('.item-card');
-            cards.forEach((card, index) => {
-                setTimeout(() => {
-                    card.classList.add('animate-in');
-                }, index * 100); // 100ms delay between each card
-            });
+            cards.forEach((card, index) => { setTimeout(() => { card.classList.add('animate-in'); }, index * 100); });
         }
 
         let currentActiveFilter = 'all';
@@ -939,28 +558,17 @@
 
         function applyFilters() {
             let term = searchInput.value.toLowerCase().trim();
-            let searchFiltered = itemsData.filter(item => 
-                item.code.toLowerCase().includes(term) || 
-                item.name.toLowerCase().includes(term) || 
-                item.description.toLowerCase().includes(term)
-            );
-            if (currentActiveFilter !== 'all') {
-                searchFiltered = searchFiltered.filter(item => item.category === currentActiveFilter);
-            }
+            let searchFiltered = itemsData.filter(item => item.code.toLowerCase().includes(term) || item.name.toLowerCase().includes(term) || item.description.toLowerCase().includes(term));
+            if (currentActiveFilter !== 'all') { searchFiltered = searchFiltered.filter(item => item.category === currentActiveFilter); }
             renderItems(searchFiltered);
         }
 
         searchInput.addEventListener('input', applyFilters);
-
-        // 👇 Click event for the new Paper Plane button
         document.getElementById('searchBtn').addEventListener('click', applyFilters);
 
         container.addEventListener('click', function(e) {
             const card = e.target.closest('.item-card');
-            if (card) {
-                const id = parseInt(card.getAttribute('data-id'));
-                openCard(id);
-            }
+            if (card) { const id = parseInt(card.getAttribute('data-id')); openCard(id); }
         });
 
         let currentItem = null;
@@ -982,8 +590,7 @@
             track.innerHTML = '';
             dotsContainer.innerHTML = '';
             currentItem.images.forEach((imgUrl, index) => {
-                const slide = document.createElement('div');
-                slide.className = 'slide';
+                const slide = document.createElement('div'); slide.className = 'slide';
                 slide.innerHTML = `<img src="${imgUrl}" alt="Image" onerror="this.src='https://via.placeholder.com/600x600?text=Image+${index+1}'">`;
                 track.appendChild(slide);
                 const dot = document.createElement('span');
@@ -996,21 +603,12 @@
             revContainer.innerHTML = '';
             if(currentItem.reviews && currentItem.reviews.length > 0) {
                 [...currentItem.reviews].reverse().forEach(rev => {
-                    const div = document.createElement('div');
-                    div.className = 'review-item';
+                    const div = document.createElement('div'); div.className = 'review-item';
                     const initial = rev.name.charAt(0).toUpperCase();
-                    div.innerHTML = `
-                        <div class="review-avatar">${initial}</div>
-                        <div class="review-body">
-                            <div class="review-name">${rev.name} <span class="badge">About Product</span></div>
-                            <p class="review-text">${rev.text}</p>
-                        </div>
-                    `;
+                    div.innerHTML = `<div class="review-avatar">${initial}</div><div class="review-body"><div class="review-name">${rev.name} <span class="badge">About Product</span></div><p class="review-text">${rev.text}</p></div>`;
                     revContainer.appendChild(div);
                 });
-            } else {
-                revContainer.innerHTML = `<p style="color: #999; font-size: 14px; padding: 5px 0 15px 0;">No reviews yet.</p>`;
-            }
+            } else { revContainer.innerHTML = `<p style="color: #999; font-size: 14px; padding: 5px 0 15px 0;">No reviews yet.</p>`; }
 
             modalCurrentSlide = 0;
             updateModalSlider();
@@ -1018,18 +616,13 @@
             document.body.style.overflow = 'hidden';
         };
 
-        window.closeCard = function() {
-            document.getElementById('expandedOverlay').style.display = 'none';
-            document.body.style.overflow = 'auto';
-        };
-
+        window.closeCard = function() { document.getElementById('expandedOverlay').style.display = 'none'; document.body.style.overflow = 'auto'; };
         function updateModalSlider() {
             const track = document.getElementById('modalSliderTrack');
             const dots = document.getElementById('modalDotsContainer').querySelectorAll('.dot');
             track.style.transform = `translateX(-${modalCurrentSlide * 100}%)`;
             dots.forEach((d, i) => d.classList.toggle('active', i === modalCurrentSlide));
         }
-
         window.moveModalSlide = function(dir) {
             const total = document.getElementById('modalSliderTrack').children.length;
             if (total === 0) return;
@@ -1038,145 +631,157 @@
             if (modalCurrentSlide >= total) modalCurrentSlide = total - 1;
             updateModalSlider();
         };
-
-        window.goToModalSlide = function(index) {
-            modalCurrentSlide = index;
-            updateModalSlider();
-        };
+        window.goToModalSlide = function(index) { modalCurrentSlide = index; updateModalSlider(); };
 
         const sliderElement = document.getElementById('imageSlider');
         let touchStartX = 0, touchEndX = 0, isSwiping = false;
-        sliderElement.addEventListener('touchstart', function(e) {
-            touchStartX = e.changedTouches[0].screenX; isSwiping = true;
-        }, {passive: true});
-        sliderElement.addEventListener('touchmove', function(e) {
-            if (isSwiping) { e.preventDefault(); }
-        }, {passive: false});
+        sliderElement.addEventListener('touchstart', function(e) { touchStartX = e.changedTouches[0].screenX; isSwiping = true; }, {passive: true});
+        sliderElement.addEventListener('touchmove', function(e) { if (isSwiping) { e.preventDefault(); } }, {passive: false});
         sliderElement.addEventListener('touchend', function(e) {
             if (!isSwiping) return;
             isSwiping = false;
             touchEndX = e.changedTouches[0].screenX;
             const swipeThreshold = 40;
             const diffX = touchStartX - touchEndX;
-            if (Math.abs(diffX) > swipeThreshold) {
-                if (diffX > 0) moveModalSlide(1);
-                else moveModalSlide(-1);
-            }
+            if (Math.abs(diffX) > swipeThreshold) { if (diffX > 0) moveModalSlide(1); else moveModalSlide(-1); }
         }, {passive: true});
 
         window.toggleMenu = function() {
-            const sidebar = document.getElementById('sidebarContainer');
-            const overlay = document.getElementById('sidebarOverlay');
-            sidebar.classList.toggle('active');
-            overlay.classList.toggle('active');
-            if (sidebar.classList.contains('active')) {
-                document.body.style.overflow = 'hidden';
-            } else {
-                document.body.style.overflow = 'auto';
-            }
-        }
+            const sidebar = document.getElementById('sidebarContainer'); const overlay = document.getElementById('sidebarOverlay');
+            sidebar.classList.toggle('active'); overlay.classList.toggle('active');
+            if (sidebar.classList.contains('active')) { document.body.style.overflow = 'hidden'; } else { document.body.style.overflow = 'auto'; }
+        };
 
-        const bannerTrack = document.getElementById('bannerTrack');
-        const bannerDots = document.getElementById('bannerDots');
-        const bannerSlides = bannerTrack.querySelectorAll('.banner-slide');
-        const totalBannerSlides = bannerSlides.length;
+        const bannerTrack = document.getElementById('bannerTrack'); const bannerDots = document.getElementById('bannerDots');
+        const bannerSlides = bannerTrack.querySelectorAll('.banner-slide'); const totalBannerSlides = bannerSlides.length;
         let currentBannerSlide = 0;
 
         bannerSlides.forEach((_, index) => {
-            const dot = document.createElement('span');
-            dot.classList.add('dot');
+            const dot = document.createElement('span'); dot.classList.add('dot');
             if (index === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => {
-                clearInterval(bannerInterval);
-                goToBannerSlide(index);
-                bannerInterval = setInterval(nextBannerSlide, 5000);
-            });
+            dot.addEventListener('click', () => { clearInterval(bannerInterval); goToBannerSlide(index); bannerInterval = setInterval(nextBannerSlide, 5000); });
             bannerDots.appendChild(dot);
         });
-
         const bannerDotsElements = bannerDots.querySelectorAll('.dot');
-
-        function goToBannerSlide(index) {
-            currentBannerSlide = index;
-            bannerTrack.style.transform = `translateX(-${index * 100}%)`;
-            bannerDotsElements.forEach((dot, i) => {
-                dot.classList.toggle('active', i === index);
-            });
-        }
-
-        function nextBannerSlide() {
-            currentBannerSlide = (currentBannerSlide + 1) % totalBannerSlides;
-            goToBannerSlide(currentBannerSlide);
-        }
-
+        function goToBannerSlide(index) { currentBannerSlide = index; bannerTrack.style.transform = `translateX(-${index * 100}%)`; bannerDotsElements.forEach((dot, i) => dot.classList.toggle('active', i === index)); }
+        function nextBannerSlide() { currentBannerSlide = (currentBannerSlide + 1) % totalBannerSlides; goToBannerSlide(currentBannerSlide); }
         let bannerInterval = setInterval(nextBannerSlide, 5000);
 
         const contactForm = document.getElementById('contactForm');
         if (contactForm) {
             contactForm.addEventListener('submit', async function(e) {
                 e.preventDefault();
-
                 const submitBtn = this.querySelector('.submit-btn');
                 const originalText = submitBtn.innerHTML;
-                
                 submitBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Sending...';
                 submitBtn.disabled = true;
-
                 try {
-                    const formData = new FormData(this);
-                    const data = Object.fromEntries(formData.entries());
-
-                    const response = await fetch('https://formspree.io/f/mnjeagqr', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Accept': 'application/json'
-                        },
-                        body: JSON.stringify(data)
-                    });
-
+                    const formData = new FormData(this); const data = Object.fromEntries(formData.entries());
+                    const response = await fetch('https://formspree.io/f/mnjeagqr', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(data) });
                     if (response.ok) {
                         submitBtn.innerHTML = '<i class="fa-solid fa-circle-check"></i> Sent! Thank you';
-                        submitBtn.style.backgroundColor = '#4CAF50';
-                        submitBtn.disabled = false;
-
-                        setTimeout(() => {
-                            this.reset();
-                            submitBtn.innerHTML = originalText;
-                            submitBtn.style.backgroundColor = '';
-                        }, 3000);
-
+                        submitBtn.style.backgroundColor = '#4CAF50'; submitBtn.disabled = false;
+                        setTimeout(() => { this.reset(); submitBtn.innerHTML = originalText; submitBtn.style.backgroundColor = ''; }, 3000);
                     } else {
-                        const errorData = await response.json();
-                        alert('❌ Failed: ' + (errorData.error || 'Something went wrong.'));
-                        submitBtn.innerHTML = originalText;
-                        submitBtn.style.backgroundColor = '';
-                        submitBtn.disabled = false;
+                        const errorData = await response.json(); alert('❌ Failed: ' + (errorData.error || 'Something went wrong.'));
+                        submitBtn.innerHTML = originalText; submitBtn.style.backgroundColor = ''; submitBtn.disabled = false;
                     }
-                } catch (error) {
-                    console.error('Formspree Error:', error);
-                    alert('❌ Network error. Please check your internet connection.');
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.style.backgroundColor = '';
-                    submitBtn.disabled = false;
-                }
+                } catch (error) { console.error('Formspree Error:', error); alert('❌ Network error. Please check your internet connection.'); submitBtn.innerHTML = originalText; submitBtn.style.backgroundColor = ''; submitBtn.disabled = false; }
             });
         }
 
-        // ==============================================
-        // 🚀 BACK TO TOP BUTTON LOGIC
-        // ==============================================
         const backToTopBtn = document.getElementById('backToTop');
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                backToTopBtn.classList.add('show');
-            } else {
-                backToTopBtn.classList.remove('show');
-            }
+            if (window.scrollY > 300) { backToTopBtn.classList.add('show'); } else { backToTopBtn.classList.remove('show'); }
         });
-        window.scrollToTop = function() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        };
+        window.scrollToTop = function() { window.scrollTo({ top: 0, behavior: 'smooth' }); };
+
+        // ==============================================
+        // 🎉 NEW: AVATAR VIBRATION (EVERY 1 MINUTE)
+        // ==============================================
+        const avatarIcon = document.getElementById('avatarIcon');
+        setInterval(() => {
+            // Remove class first to restart animation if needed, then add
+            avatarIcon.classList.remove('vibrate');
+            // Force reflow to restart animation
+            void avatarIcon.offsetWidth;
+            avatarIcon.classList.add('vibrate');
+        }, 60000); // 60000ms = 1 minute
+        
+        // Remove the class after the animation ends so it can be triggered next time
+        avatarIcon.addEventListener('animationend', () => {
+            avatarIcon.classList.remove('vibrate');
+        });
+        // ==============================================
+
+        // ==============================================
+        // 🎉 5 UNIQUE SEQUENTIAL POPUPS WITH LOOP & RANDOM POSITION
+        // ==============================================
+        const popupMessages = [
+            { title: "Arey Wah!", message: "Aap aa hi gaye ho, toh ek baar 'Check Out' toh kar ke dekho! 😂", icon: "fa-smile-wink", iconColor: "#f39c12" },
+            { title: "Aaj Mood Off?", message: "Deal Pocket ka checkout mood on kar dega! Kuch toh kharido! 🛍️", icon: "fa-cart-shopping", iconColor: "#e67e22" },
+            { title: "Ek Hint!", message: "Kuch bhi kharidne se pehle 'Check Out' par click karna mat bhoolna! 👀", icon: "fa-lightbulb", iconColor: "#f1c40f" },
+            { title: "5 Seconds Magic!", message: "Bhai, 5 minute lagte hai shopping karne mein, Deal Pocket pe 5 second mein ho jata hai! 🏃‍♂️", icon: "fa-bolt", iconColor: "#f39c12" },
+            { title: "Yeh Yaad Dila Raha Hai!", message: "Ye pop-up tumhe yaad dila raha hai ki 'Check Out' kar lo! Abhi karo! 😉", icon: "fa-bell", iconColor: "#e74c3c" }
+        ];
+
+        let currentPopupIndex = 0;
+        let popupTimer = null;
+
+        function getRandomPosition() {
+            const top = Math.floor(Math.random() * 60) + 15; // 15% to 75%
+            const left = Math.floor(Math.random() * 60) + 15; // 15% to 75%
+            return { top: top + '%', left: left + '%' };
+        }
+
+        function showSequentialPopup() {
+            if (popupTimer) clearTimeout(popupTimer);
+            const data = popupMessages[currentPopupIndex];
+            const popupEl = document.createElement('div');
+            popupEl.className = 'funny-popup-overlay';
+            const pos = getRandomPosition();
+            popupEl.style.top = pos.top;
+            popupEl.style.left = pos.left;
+            popupEl.style.transform = 'translate(-50%, -50%)';
+
+            popupEl.innerHTML = `
+                <div class="funny-popup-header">
+                    <h4><i class="fa-solid ${data.icon}" style="color: ${data.iconColor};"></i> ${data.title}</h4>
+                    <button class="popup-close-btn" onclick="closeThisPopup(this)">✕</button>
+                </div>
+                <div class="funny-popup-body">
+                    <p>${data.message}</p>
+                    <a href="#" onclick="closeThisPopup(this); return false;">Check Out Deals</a>
+                </div>
+            `;
+
+            document.body.appendChild(popupEl);
+            popupEl.style.display = 'flex';
+
+            const autoCloseTimer = setTimeout(() => {
+                if (popupEl.parentNode) {
+                    popupEl.remove();
+                    scheduleNextPopup();
+                }
+            }, 8000);
+
+            window.closeThisPopup = function(btnElement) {
+                const parent = btnElement.closest('.funny-popup-overlay');
+                if (parent) {
+                    clearTimeout(autoCloseTimer);
+                    parent.remove();
+                    scheduleNextPopup();
+                }
+            };
+        }
+
+        function scheduleNextPopup() {
+            currentPopupIndex = (currentPopupIndex + 1) % popupMessages.length;
+            const nextDelay = Math.floor(Math.random() * 30000) + 30000; 
+            popupTimer = setTimeout(showSequentialPopup, nextDelay);
+        }
+
+        setTimeout(showSequentialPopup, 15000);
 
         applyFilters();
     })();
