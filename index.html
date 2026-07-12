@@ -9,7 +9,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         
         /* ============================================== */
-        /* 🍃 FRESH MINT GREEN THEME (Like the image)    */
+        /* 🍃 FRESH MINT GREEN THEME                      */
         /* ============================================== */
         :root { 
             --bg-color: #DDF6E5; /* Soft Menthol/Mint Green Background */
@@ -77,7 +77,7 @@
          }
         .search-box input { 
             flex: 1;
-            padding: 16px 20px; 
+            padding: 17px 20px; 
             border: none;
             background: transparent;
             font-size: 14px; 
@@ -223,19 +223,56 @@
         .section-header span { font-size: 12px; color: var(--text-gray); }
         #resultsContainer { display: flex; flex-direction: column; gap: 15px; min-height: 200px; }
 
-        /* ✨ DEEPER MINT CARDS */
+        /* ============================================== */
+        /* ✨ DEEPER MINT CARDS + SLIDE ANIMATION        */
+        /* ============================================== */
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
         .item-card { 
-            background: var(--card-white); /* Now Deeper Mint than Background */
+            background: var(--card-white); /* Deeper Mint */
             padding: 20px 16px; 
             display: flex; gap: 16px; 
             cursor: pointer; 
-            transition: all 0.2s ease; 
-            border: 1px solid rgba(15, 157, 88, 0.08); /* Slightly visible border for separation */
+            transition: all 0.3s ease; 
+            border: 1px solid rgba(15, 157, 88, 0.08); 
             border-radius: var(--radius); 
-            box-shadow: 0 4px 12px rgba(15, 157, 88, 0.05); /* Very soft green shadow */ 
+            box-shadow: 0 4px 12px rgba(15, 157, 88, 0.05);
+            opacity: 0; /* Hidden initially for animation */
+        }
+        .item-card.animate-in {
+            animation: slideUp 0.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
         }
         .item-card:active { transform: scale(0.95); }
-        .item-img { width: 90px; height: 90px; border-radius: 8px; object-fit: cover; flex-shrink: 0; background: #f0f0f0; border: 1px solid rgba(0,0,0,0.02); }
+
+        /* 🏷️ PROFESSIONAL IMAGE BADGE STYLES */
+        .item-img-wrap {
+            position: relative;
+            width: 90px;
+            height: 90px;
+            flex-shrink: 0;
+        }
+        .item-img { 
+            width: 100%; height: 100%; border-radius: 8px; object-fit: cover; 
+            background: #f0f0f0; border: 1px solid rgba(0,0,0,0.02); 
+        }
+        .badge-icon {
+            position: absolute;
+            top: -6px;
+            right: -6px;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+        /* ============================================== */
+
         .item-details { flex: 1; display: flex; flex-direction: column; justify-content: center; }
         .item-title { font-size: 16px; font-weight: 600; margin-bottom: 6px; color: var(--text-main); }
         .item-subtitle { font-size: 12px; color: var(--text-gray); margin-bottom: 10px; }
@@ -276,7 +313,7 @@
         .no-results { text-align: center; color: var(--text-gray); padding: 20px; display: none; }
 
         /* ============================================== */
-        /* 🍃 EXPANDABLE MODAL (FULLY MINT GREEN NOW)    */
+        /* 🍃 EXPANDABLE MODAL (FULLY MINT GREEN)        */
         /* ============================================== */
         .expanded-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: var(--modal-bg); z-index: 9999; flex-direction: column; animation: slideUp 0.3s ease-out forwards; }
         @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
@@ -287,7 +324,6 @@
         .expanded-scrollable { flex: 1; overflow-y: auto; padding-bottom: 80px; background: var(--modal-bg); }
         .expanded-scrollable::-webkit-scrollbar { display: none; }
 
-        /* Slider area stays white so images pop perfectly */
         .slider-main { width: 100%; aspect-ratio: 1 / 1; overflow: hidden; position: relative; background: #FFFFFF; cursor: grab; margin-top: 0; }
         .slider-main:active { cursor: grabbing; }
         .slider-track { display: flex; height: 100%; transition: transform 0.3s ease-in-out; }
@@ -298,7 +334,6 @@
         .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.5); cursor: pointer; }
         .dot.active { background: white; transform: scale(1.3); }
 
-        /* Details & Reviews sections now match the Card color */
         .details-section { margin: 0; padding: 20px 20px 30px 20px; border-radius: 0; box-shadow: none; background: var(--card-white); width: 100%; border-top: 1px solid rgba(15, 157, 88, 0.08); }
         .details-section .modal-title { font-size: 20px; font-weight: 600; margin-bottom: 5px; color: var(--text-main); }
         .details-section .modal-price { font-size: 24px; font-weight: 700; color: var(--text-main); display: block; margin-bottom: 10px; }
@@ -310,7 +345,6 @@
         .review-item:last-child { border-bottom: none; padding-bottom: 0; }
         .review-avatar { width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0; background: var(--dark-green); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 14px; }
         .review-name { font-weight: 600; font-size: 14px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 4px; color: var(--text-main);}
-        
         .review-name .badge { 
             font-size: 10px; 
             background: rgba(155, 89, 182, 0.12); 
@@ -319,7 +353,6 @@
             border-radius: 10px; 
             border: 1px solid rgba(155, 89, 182, 0.12);
         }
-
         .review-text { font-size: 13px; color: var(--text-gray); line-height: 1.4; }
 
         .expanded-footer { position: absolute; bottom: 0; left: 0; width: 100%; padding: 15px 20px; background: var(--modal-bg); border-top: 1px solid rgba(15, 157, 88, 0.08); display: flex; justify-content: space-between; align-items: center; box-shadow: 0 -4px 15px rgba(0,0,0,0.03); }
@@ -342,8 +375,7 @@
         .sidebar-section h4 { font-size: 16px; margin-bottom: 10px; color: var(--text-main); }
         .sidebar-section p { font-size: 14px; color: var(--text-gray); line-height: 1.6; }
         .sidebar-section .highlight { color: var(--dark-green); font-weight: 500; }
-        /* ============================================== */
-
+        
         .form-group { margin-bottom: 12px; }
         .form-group input, .form-group textarea { 
             width: 100%; padding: 12px 14px; 
@@ -386,6 +418,37 @@
         ::-webkit-scrollbar-track { background: var(--bg-color); }
         ::-webkit-scrollbar-thumb { background: #B0B0B5; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #909095; }
+
+        /* ============================================== */
+        /* 🚀 BACK TO TOP BUTTON STYLES                   */
+        /* ============================================== */
+        #backToTop {
+            position: fixed;
+            bottom: 25px;
+            right: 20px;
+            width: 48px;
+            height: 48px;
+            background: var(--dark-green);
+            color: #FFFFFF;
+            border: none;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            display: none; /* Hidden by default */
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(15, 157, 88, 0.3);
+            transition: all 0.3s ease;
+            z-index: 99999;
+        }
+        #backToTop:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(15, 157, 88, 0.4);
+        }
+        #backToTop.show {
+            display: flex;
+        }
+        /* ============================================== */
 
         /* ============================================== */
         /* 🚀 SEAMLESS WHITE FOOTER ON MINT BACKGROUND   */
@@ -588,7 +651,6 @@
                 <p>Welcome to <span class="highlight">Deal Pocket</span>! Here, you can explore a wide range of products including <span class="highlight">Clothes, Electric Accessories, and Beauty Items</span>. Use the <strong>Category filters</strong> to quickly find what you love, or search by <strong>Product Code or Name</strong>. Tap any product card to view high-resolution images, read honest reviews from <span class="highlight">Deal Pocket</span>, and access all the details you need before buying.</p>
             </div>
             
-            <!-- UPDATED: Affiliate box now matches deeper mint card color -->
             <div class="sidebar-section" style="background: var(--card-white); padding: 15px; border-radius: 12px; border: 1px solid rgba(15, 157, 88, 0.08);">
                 <h4 style="color: var(--dark-green);"><i class="fa-solid fa-bullhorn" style="margin-right: 8px;"></i> Affiliate Disclosure</h4>
                 <p style="font-size: 13px; color: var(--text-gray);">When you make a purchase through our <strong>"Buy Now"</strong> affiliate links, we may earn a small commission at <strong>no extra cost</strong> to you. This helps us maintain and improve the website. We strictly adhere to <span class="highlight">Amazon Affiliate guidelines</span>.</p>
@@ -613,6 +675,13 @@
     </div>
 
 </div> <!-- End of app-container -->
+
+<!-- ============================================== -->
+<!-- 🚀 BACK TO TOP BUTTON (OUTSIDE CONTAINER)        -->
+<!-- ============================================== -->
+<button id="backToTop" onclick="scrollToTop()">
+    <i class="fa-solid fa-arrow-up"></i>
+</button>
 
 <!-- ============================================== -->
 <!-- 🚀 FULL WIDTH SEAMLESS FOOTER (OUTSIDE CONTAINER) -->
@@ -657,6 +726,7 @@
         const searchInput = document.getElementById('searchInput');
         const filterButtons = document.querySelectorAll('#categoryFilters .cat-item');
 
+        // 🚀 UPDATED DATA WITH PROFESSIONAL BADGES
         const itemsData = [
               { 
         id: 1, 
@@ -665,6 +735,8 @@
         subtitle: "Print, Scan, Copy • 22 ppm Speed • Auto-Duplex", 
         price: "22,999", 
         rating: "4.0", 
+        badgeIcon: "fa-fire", 
+        badgeColor: "#e74c3c", // Red for Trending
         category: "electric", 
         
         // --- Thumbnail Image (Appears on the main card) ---
@@ -695,6 +767,8 @@
         subtitle: "Anti-Aging, Fine Lines & Wrinkle • 30ml", 
         price: "7,000", 
         rating: "4.4", 
+        badgeIcon: "fa-star", 
+        badgeColor: "#f39c12", // Gold for Recommended
         category: "beauty", 
         
         // --- Thumbnail Image (Appears on the main card) ---
@@ -753,6 +827,8 @@
         subtitle: "Intel Core Ultra 5 • 16GB RAM • 1TB SSD • 14'' OLED", 
         price: "1,03,490", 
         rating: "3.5", 
+        badgeIcon: "fa-bolt", 
+        badgeColor: "#f39c12", // Gold for High Performance
         category: "electric", 
         
         // --- Thumbnail Image (Appears on the main card) ---
@@ -812,10 +888,21 @@
             if (items.length === 0) { document.getElementById('noResults').style.display = 'block'; return; }
             document.getElementById('noResults').style.display = 'none';
             const fallbackImg = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MCIgaGVpZ2h0PSI5MCI+PHJlY3Qgd2lkdGg9IjkwIiBoZWlnaHQ9IjkwIiBmaWxsPSIjZTBlMGUwIi8+PHRleHQgeD0iNDUiIHk9IjQ1IiBmb250LXNpemU9IjE0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjNjY2Ij5JTUc8L3RleHQ+PC9zdmc+";
+            
             items.forEach(item => {
+                // ✅ PROFESSIONAL BADGE LOGIC
+                const badgeHtml = item.badgeIcon ? `
+                    <div class="badge-icon" style="background: ${item.badgeColor || '#e74c3c'};">
+                        <i class="fa-solid ${item.badgeIcon}"></i>
+                    </div>
+                ` : '';
+
                 const cardHtml = `
                     <div class="item-card" data-id="${item.id}">
-                        <img src="${item.img}" class="item-img" alt="${item.name}" onerror="this.src='${fallbackImg}'">
+                        <div class="item-img-wrap">
+                            <img src="${item.img}" class="item-img" alt="${item.name}" onerror="this.src='${fallbackImg}'">
+                            ${badgeHtml}
+                        </div>
                         <div class="item-details">
                             <div class="item-title">${item.name}</div>
                             <div class="item-subtitle">${item.subtitle}</div>
@@ -829,6 +916,14 @@
                     </div>
                 `;
                 container.insertAdjacentHTML('beforeend', cardHtml);
+            });
+
+            // ✅ SLIDE-IN ANIMATION LOGIC
+            const cards = container.querySelectorAll('.item-card');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add('animate-in');
+                }, index * 100); // 100ms delay between each card
             });
         }
 
@@ -1067,6 +1162,21 @@
                 }
             });
         }
+
+        // ==============================================
+        // 🚀 BACK TO TOP BUTTON LOGIC
+        // ==============================================
+        const backToTopBtn = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+        window.scrollToTop = function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
 
         applyFilters();
     })();
