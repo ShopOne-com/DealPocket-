@@ -331,6 +331,13 @@
             display: none; 
             animation: slideUp 0.4s cubic-bezier(0.23, 1, 0.32, 1) forwards;
         }
+        /* 🚀 MOBILE POP-UP FIX (Prevent overflow) */
+        @media (max-width: 480px) {
+            .funny-popup-overlay {
+                max-width: 80vw; /* Limit width to 80% of screen */
+                padding: 15px;
+            }
+        }
         .funny-popup-header { display: flex; justify-content: space-between; align-items: start; margin-bottom: 10px; }
         .funny-popup-header h4 { font-size: 18px; font-weight: 700; color: var(--dark-green); display: flex; align-items: center; gap: 8px; }
         .popup-close-btn { background: none; border: none; font-size: 20px; color: var(--text-gray); cursor: pointer; transition: 0.2s; padding: 0; }
@@ -728,9 +735,10 @@
         let currentPopupIndex = 0;
         let popupTimer = null;
 
+        // 🛠️ FIXED RANDOM POSITION (Prevents hiding off-screen)
         function getRandomPosition() {
-            const top = Math.floor(Math.random() * 60) + 15; // 15% to 75%
-            const left = Math.floor(Math.random() * 60) + 15; // 15% to 75%
+            const top = Math.floor(Math.random() * 40) + 10; // 10% to 50%
+            const left = Math.floor(Math.random() * 30) + 5; // 5% to 35% (Safe margin)
             return { top: top + '%', left: left + '%' };
         }
 
@@ -758,12 +766,13 @@
             document.body.appendChild(popupEl);
             popupEl.style.display = 'flex';
 
+            // ⏱️ REDUCED AUTO-CLOSE TIMER TO 5 SECONDS
             const autoCloseTimer = setTimeout(() => {
                 if (popupEl.parentNode) {
                     popupEl.remove();
                     scheduleNextPopup();
                 }
-            }, 8000);
+            }, 5000); // Changed from 8000 to 5000
 
             window.closeThisPopup = function(btnElement) {
                 const parent = btnElement.closest('.funny-popup-overlay');
@@ -777,7 +786,7 @@
 
         function scheduleNextPopup() {
             currentPopupIndex = (currentPopupIndex + 1) % popupMessages.length;
-            const nextDelay = Math.floor(Math.random() * 30000) + 30000; 
+            const nextDelay = Math.floor(Math.random() * 30000) + 30000; // 30s to 60s
             popupTimer = setTimeout(showSequentialPopup, nextDelay);
         }
 
