@@ -257,27 +257,6 @@
 
         .rating-chip { display: flex; align-items: center; gap: 4px; background: rgba(243, 156, 18, 0.1); color: #d35400; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; }
         .code-chip { background: rgba(155, 89, 182, 0.12); color: #9b59b6; padding: 6px 14px; border-radius: 6px; font-size: 12px; font-weight: 600; font-family: monospace; letter-spacing: 0.5px; }
-        
-        /* 🚀 CARD CHECKOUT BUTTON */
-        .card-checkout-btn {
-            display: inline-block;
-            background: var(--dark-green);
-            color: #FFFFFF;
-            border: none;
-            padding: 6px 16px;
-            border-radius: 30px;
-            font-weight: 600;
-            font-size: 12px;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            box-shadow: 0 2px 8px rgba(15, 157, 88, 0.2);
-            letter-spacing: 0.3px;
-            white-space: nowrap;
-        }
-        .card-checkout-btn:hover { transform: scale(1.04); box-shadow: 0 4px 14px rgba(15, 157, 88, 0.3); }
-        .card-checkout-btn:active { transform: scale(0.94); }
-        .card-checkout-btn i { margin-right: 4px; font-size: 11px; }
 
         .no-results { text-align: center; color: var(--text-gray); padding: 20px; display: none; }
 
@@ -344,11 +323,11 @@
         .header-icons .icon-box .fa-bars { color: var(--dark-green); }
         .banner-slide .fa-fire { color: #e74c3c; }
         .banner-slide .fa-mobile-screen { color: #3498db; }
-        .banner-slide .fa-shirt { color: #3498db; }
+        .banner-slide .fa-utensils { color: #f39c12; } /* Kitchen Tools Icon */
         .banner-slide .fa-gift { color: #e67e22; }
         .banner-slide .fa-headphones { color: #1abc9c; }
         .cat-item .fa-th-large { color: #1abc9c; }
-        .cat-item .fa-shirt { color: #3498db; }
+        .cat-item .fa-utensils { color: #e67e22; } /* Kitchen category icon */
         .cat-item .fa-bolt { color: #f39c12; }
         .cat-item .fa-spa { color: #9b59b6; }
         .rating-chip .fa-star { color: #f1c40f; }
@@ -446,29 +425,34 @@
 
     <div class="banner-slider" id="bannerSlider">
         <div class="banner-track" id="bannerTrack">
+            <!-- Slide 1: Mega Sale (Now only Kitchen, Electric, Beauty) -->
             <div class="banner-slide" style="background: linear-gradient(135deg, #ff4b2b, #ff416c);">
                 <h2><i class="fa-solid fa-fire"></i> Mega Sale! Up to 50% Off</h2>
-                <p>Shop trending fashion and gadgets now.</p>
+                <p>Shop trending Kitchen, Electric, and Beauty items now.</p>
                 <button class="btn-primary">Grab Deal</button>
             </div>
+            <!-- Slide 2: New Arrivals -->
             <div class="banner-slide" style="background: linear-gradient(135deg, #0083b0, #00b4db);">
                 <h2><i class="fa-solid fa-mobile-screen"></i> New Arrivals</h2>
-                <p>Explore the latest electric and beauty items.</p>
+                <p>Explore the latest Kitchen, Electric, and Beauty items.</p>
                 <button class="btn-primary">View More</button>
             </div>
-            <div class="banner-slide" style="background: linear-gradient(135deg, #4a00e0, #8e2de2);">
-                <h2><i class="fa-solid fa-shirt"></i> Winter Collection</h2>
-                <p>Premium hoodies and jackets at best prices.</p>
+            <!-- Slide 3: Kitchen Tools Sale -->
+            <div class="banner-slide" style="background: linear-gradient(135deg, #f7971e, #ffd200);">
+                <h2><i class="fa-solid fa-utensils"></i> Kitchen Tools Sale!</h2>
+                <p>Upgrade your kitchen with premium utensils & appliances.</p>
                 <button class="btn-primary">Shop Now</button>
             </div>
+            <!-- Slide 4: Free Shipping -->
             <div class="banner-slide" style="background: linear-gradient(135deg, #11998e, #38ef7d);">
                 <h2><i class="fa-solid fa-gift"></i> Free Shipping</h2>
                 <p>On all orders over ₹50. Limited time offer!</p>
                 <button class="btn-primary">Order Now</button>
             </div>
+            <!-- Slide 5: Top Rated Electric & Beauty -->
             <div class="banner-slide" style="background: linear-gradient(135deg, #f7971e, #ffd200);">
-                <h2><i class="fa-solid fa-headphones"></i> Premium Audio</h2>
-                <p>Experience sound like never before.</p>
+                <h2><i class="fa-solid fa-headphones"></i> Top Rated Electric & Beauty</h2>
+                <p>Experience premium quality with our top picks.</p>
                 <button class="btn-primary">Explore</button>
             </div>
         </div>
@@ -477,7 +461,8 @@
 
     <div class="categories" id="categoryFilters">
         <div class="cat-item active" data-filter="all"><i class="fa-solid fa-th-large"></i> All</div>
-        <div class="cat-item" data-filter="clothes"><i class="fa-solid fa-shirt"></i> Clothes</div>
+        <!-- 🍳 Kitchen Category (Updated filter to 'kitchen') -->
+        <div class="cat-item" data-filter="kitchen"><i class="fa-solid fa-utensils"></i> Kitchen</div>
         <div class="cat-item" data-filter="electric"><i class="fa-solid fa-bolt"></i> Electric</div>
         <div class="cat-item" data-filter="beauty"><i class="fa-solid fa-spa"></i> Beauty</div>
     </div>
@@ -523,7 +508,7 @@
         <div class="sidebar-content">
             <div class="sidebar-section">
                 <h4><i class="fa-solid fa-sparkles" style="margin-right: 8px;"></i> What’s on this Website?</h4>
-                <p>Welcome to <span class="highlight">Deal Pocket</span>! Here, you can explore a wide range of products including <span class="highlight">Clothes, Electric Accessories, and Beauty Items</span>. Use the <strong>Category filters</strong> to quickly find what you love, or search by <strong>Product Code or Name</strong>. Tap any product card to view high-resolution images, read honest reviews from <span class="highlight">Deal Pocket</span>, and access all the details you need before buying.</p>
+                <p>Welcome to <span class="highlight">Deal Pocket</span>! Here, you can explore a wide range of products including <span class="highlight">Kitchen Tools, Electric Accessories, and Beauty Items</span>. Use the <strong>Category filters</strong> to quickly find what you love, or search by <strong>Product Code or Name</strong>. Tap any product card to view high-resolution images, read honest reviews from <span class="highlight">Deal Pocket</span>, and access all the details you need before buying.</p>
             </div>
             <div class="sidebar-section" style="background: var(--card-white); padding: 15px; border-radius: 12px; border: 1px solid rgba(15, 157, 88, 0.08);">
                 <h4 style="color: var(--dark-green);"><i class="fa-solid fa-bullhorn" style="margin-right: 8px;"></i> Affiliate Disclosure</h4>
@@ -549,13 +534,13 @@
 <button id="backToTop" onclick="scrollToTop()"><i class="fa-solid fa-arrow-up"></i></button>
 
 <!-- ============================================== -->
-<!-- 🚀 FOOTER                                      -->
+<!-- 🚀 FOOTER (Updated tagline for Kitchen, Electric, Beauty) -->
 <!-- ============================================== -->
 <div class="footer-links-section">
     <div class="footer-top-row">
         <div class="footer-brand-area">
             <div class="brand"><i class="fa-solid fa-bag-shopping"></i> Deal Pocket</div>
-            <p>Your Smart Shopping Hub</p>
+            <p>Your Smart Shopping Hub for Kitchen, Electric & Beauty</p>
         </div>
         <div class="footer-columns">
             <div class="footer-col"><h5>Features</h5><a href="#">All Products</a><a href="#">Categories</a><a href="#">Best Sellers</a></div>
@@ -578,6 +563,8 @@
                 { id: 3, code: "REP-BIO-11800", name: "Repechage Biolight Brightening Overnight Cream", subtitle: "Targets Dark Spots & Uneven Tone • 50ml", price: "11,800", rating: "4.2", category: "beauty", img: "https://m.media-amazon.com/images/I/410kbjb7ZgL._SL1000_.jpg", images: ["https://m.media-amazon.com/images/I/510L-+8AfIL._SL1000_.jpg","https://m.media-amazon.com/images/I/410kbjb7ZgL._SL1000_.jpg","https://m.media-amazon.com/images/I/611IVTCyNZL._SL1000_.jpg","https://m.media-amazon.com/images/I/61DEZCIFOKL._SL1000_.jpg"], description: "Wake up to visibly brighter, healthier-looking skin with the Repechage Biolight Brightening Overnight Cream. This luxurious night cream is specially formulated with a marine-based seaweed complex, hyaluronic acid, and licorice extract. It works effortlessly overnight to target dark spots, hyperpigmentation, and uneven skin tone. By morning, your complexion feels incredibly hydrated, smooth, and boasts a luminous, even glow. Its lightweight, non-greasy formula makes it the perfect final step in your nightly skincare routine.", reviews: [ { name: "Deal Pocket", text: "I am absolutely in love with this overnight cream! After just a couple of weeks of consistent use, my dark spots have visibly faded, and my overall skin tone is much more even and bright. It feels incredibly hydrating but never heavy or sticky on my skin. I wake up every morning with a fresh, glowing complexion. This is a real game-changer for anyone struggling with hyperpigmentation!" } ], affiliateLink: "https://link.amazon/B0akK4jL7" },
                 { id: 4, code: "HP-OMNIBOOK", name: "HP OmniBook 7 OLED Laptop", subtitle: "Intel Core Ultra 5 • 16GB RAM • 1TB SSD • 14'' OLED", price: "1,03,490", rating: "3.5", badgeIcon: "fa-bolt", badgeColor: "#f39c12", category: "electric", img: "https://m.media-amazon.com/images/I/71mS3HuUn1L._SL1500_.jpg", images: ["https://m.media-amazon.com/images/I/81Az6-OJRnL._SL1500_.jpg","https://m.media-amazon.com/images/I/81fFw6xIN3L._SL1500_.jpg","https://m.media-amazon.com/images/I/71rXghp3U9L._SL1500_.jpg","https://m.media-amazon.com/images/I/81w5FrjPflL._SL1500_.jpg"], description: "The HP OmniBook 7 OLED (formerly Pavilion Plus) is a powerhouse laptop designed for creators and professionals. It features a stunning 14-inch OLED display with incredible color accuracy and deep blacks, perfect for creative work. Powered by an Intel Core Ultra 5 processor, 16GB LPDDR5 RAM, and a massive 1TB SSD, it handles multitasking and heavy files with absolute ease. Pre-loaded with Windows 11 and Microsoft Office 2024, it offers a complete productivity package in a sleek, lightweight (1.5kg) Meteor Silver chassis.", reviews: [ { name: "Deal Pocket", text: "As a creative professional, this laptop has exceeded my expectations! The OLED screen offers incredibly vibrant colors and deep blacks, perfect for photo editing. The performance is snappy, opening heavy files instantly thanks to the 16GB RAM and 1TB SSD. It stays cool and quiet during heavy usage, and the sleek Meteor Silver finish gives it a premium, modern look and feel on the go." } ], affiliateLink: "https://link.amazon/B06Yw3RMr" },
                 { id: 5, code: "LEN-IP3-I7", name: "Lenovo IdeaPad Slim 3 (i7, 16GB, 512GB)", subtitle: "13th Gen Intel i7 • 16GB RAM • 512GB SSD • 15.3'' WUXGA", price: "77,990", rating: "4.5", category: "electric", img: "https://m.media-amazon.com/images/I/71K-77wHn2L._SL1500_.jpg", images: ["https://m.media-amazon.com/images/I/71LgDJBjeXL._SL1500_.jpg","https://m.media-amazon.com/images/I/7186lmhAywL._SL1500_.jpg","https://m.media-amazon.com/images/I/710IkDMfkUL._SL1500_.jpg","https://m.media-amazon.com/images/I/61uGji4cxOL._SL1080_.jpg"], description: "The Lenovo IdeaPad Slim 3 is a powerhouse ultrabook designed for professionals and students alike. Equipped with a 13th Gen Intel Core i7 processor and 16GB of RAM, it effortlessly handles heavy multitasking, complex spreadsheets, and everyday productivity. The 15.3-inch WUXGA IPS display delivers sharp, bright visuals, and the 512GB SSD ensures lightning-fast boot times and ample storage for all your files. Weighing just 1.6kg and featuring a premium Metal Cover Grey finish with a backlit keyboard, it is the perfect blend of portability, performance, and style.", reviews: [ { name: "Deal Pocket", text: "I've been using the IdeaPad Slim 3 for my daily work and coding, and it's absolutely fantastic! The performance from the i7 processor is blazing fast, and the 16GB of RAM makes running dozens of tabs and heavy software a breeze. The 512GB SSD is incredibly quick, and the 15.3-inch screen is vibrant and sharp. It's lightweight enough to carry everywhere, yet feels incredibly premium and robust. Highly recommended for anyone seeking a powerful, versatile laptop!" } ], affiliateLink: "https://link.amazon/B06qGHHEp" },
+                // 🆕 NEW KITCHEN TOOLS PRODUCT ADDED
+                { id: 6, code: "KITCH-001", name: "Premium Non-Stick Cookware Set", subtitle: "5-Piece Set • Induction Base • Durable", price: "4,999", rating: "4.8", badgeIcon: "fa-utensils", badgeColor: "#e67e22", category: "kitchen", img: "https://m.media-amazon.com/images/I/81sS3sM5wSL._SL1500_.jpg", images: ["https://m.media-amazon.com/images/I/81sS3sM5wSL._SL1500_.jpg","https://m.media-amazon.com/images/I/71j3C1xQ3RL._SL1500_.jpg","https://m.media-amazon.com/images/I/61H5X2yK4PL._SL1200_.jpg","https://m.media-amazon.com/images/I/71yS3yX4wTL._SL1500_.jpg"], description: "Upgrade your kitchen with this 5-piece premium non-stick cookware set. Featuring induction-compatible bases, scratch-resistant coating, and cool-touch handles, this set includes a frying pan, saucepan, casserole, and two lids. Perfect for everyday cooking and easy to clean. Enjoy healthy, low-oil meals with even heat distribution.", reviews: [ { name: "Deal Pocket", text: "This cookware set is absolutely fantastic! The non-stick coating is top-notch, and everything cooks evenly. Cleaning is a breeze—just a quick wipe and it's spotless. The induction base works perfectly on my stove. Highly recommended for anyone looking to upgrade their kitchen tools!" } ], affiliateLink: "https://link.amazon/B0kitchen001" }
         ];
 
         function renderItems(items) {
